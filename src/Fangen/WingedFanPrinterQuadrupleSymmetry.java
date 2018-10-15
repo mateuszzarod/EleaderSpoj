@@ -10,6 +10,10 @@ public class WingedFanPrinterQuadrupleSymmetry extends WingFanPrinterBasic {
     @Override
     public void draw(int n, Direction direction) {
         int size = Math.abs(n * 2);
+        printFang(direction, size);
+    }
+
+    private void printFang(Direction direction, int size) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < size; ++i) {
             for (int j = 0; j < size; ++j) {

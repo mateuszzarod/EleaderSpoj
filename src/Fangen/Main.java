@@ -13,14 +13,19 @@ public class Main {
             FangFactory fangFactory = new FangFactory();
 
             while ((n = Integer.parseInt(reader.readLine())) != 0) {
-                Direction dir;
-                if (n > 0) {
-                    dir = Direction.CLOCKWISE;
-                } else dir = Direction.COUNTERCLOCKWISE;
+                Direction dir = getDirection(n);
                 fangFactory.makeWingType(FangType.QUADRUPLESMALL, chars).draw(n, dir);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private static Direction getDirection(int n) {
+        Direction dir;
+        if (n > 0) {
+            dir = Direction.CLOCKWISE;
+        } else dir = Direction.COUNTERCLOCKWISE;
+        return dir;
     }
 }

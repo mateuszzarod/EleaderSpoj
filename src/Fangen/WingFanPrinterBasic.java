@@ -16,6 +16,10 @@ public class WingFanPrinterBasic implements FangPrinter{
     @Override
     public void draw(int n, Direction direction) {
         int size = Math.abs(n);
+        printFang(direction, size);
+    }
+
+    private void printFang(Direction direction, int size) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < size; ++i) {
             for (int j = 0; j < size; ++j) {
@@ -23,64 +27,32 @@ public class WingFanPrinterBasic implements FangPrinter{
                 if (direction == Direction.CLOCKWISE) {
                     if (i < size / 2) {
                         if (j < size / 2) {
-                            if (j < i + 1)
-
-                                sb.append(filler.getStar());
-                            else
-                                sb.append(filler.getDot());
-
-                        }
-                        else {
-                            if (j < size - i)
-                                sb.append(filler.getStar());
-                            else
-                                sb.append(filler.getDot());
+                            sb.append(j < i + 1 ? filler.getStar() : filler.getDot());
+                        } else {
+                            sb.append(j < size - i ? filler.getStar() : filler.getDot());
                         }
                     } else {
                         if (j < size / 2) {
-                            if (j >= size - i - 1)
-                                sb.append(filler.getStar());
-                            else
-                                sb.append(filler.getDot());
-                        }
-                        else {
-                            if (j >= i)
-                                sb.append(filler.getStar());
-                            else
-                                sb.append(filler.getDot());
+                            sb.append(j >= size - i - 1 ? filler.getStar() : filler.getDot());
+                        } else {
+                            sb.append(j >= i ? filler.getStar() : filler.getDot());
                         }
                     }
-                }
-                else {
+                } else {
                     if (i < size / 2) {
                         if (j < size / 2) {
-                            if (j >= i)
-                                sb.append(filler.getStar());
-                            else
-                                sb.append(filler.getDot());
-                        }
-                        else {
-                            if (j >= size - i - 1)
-                                sb.append(filler.getStar());
-                            else
-                                sb.append(filler.getDot());
+                            sb.append((j >= i ? filler.getStar() : filler.getDot()));
+                        } else {
+                            sb.append((j >= size - i - 1 ? filler.getStar() : filler.getDot()));
                         }
                     } else {
                         if (j < size / 2) {
-                            if (j < size - i)
-                                sb.append(filler.getStar());
-                            else
-                                sb.append(filler.getDot());
-                        }
-                        else {
-                            if (j <= i)
-                                sb.append(filler.getStar());
-                            else
-                                sb.append(filler.getDot());
+                            sb.append((j < size - i ? filler.getStar() : filler.getDot()));
+                        } else {
+                            sb.append((j <= i ? filler.getStar() : filler.getDot()));
                         }
                     }
                 }
-
             }
             sb.append("\n");
         }

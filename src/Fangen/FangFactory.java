@@ -2,8 +2,9 @@ package Fangen;
 
 
 public class FangFactory {
-    FangType fangType;
-    CharMap charMap;
+    private FangType fangType;
+
+    private CharMap charMap;
 
     public FangType getFangType() {
         return fangType;
